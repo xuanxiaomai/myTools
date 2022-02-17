@@ -11,8 +11,8 @@ import (
 type Tools struct{}
 
 //花里胡哨
-func Init() Tools {
-	return Tools{}
+func Init() *Tools {
+	return &Tools{}
 }
 
 // 反转字符串
