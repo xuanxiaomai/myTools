@@ -80,7 +80,10 @@ func (t *Tools) RandomName() string {
 		"宗", "曼", "紫", "逸", "贤", "蝶", "菡", "绿", "蓝", "儿", "翠", "烟", "小", "轩",
 	}
 	rand.Seed(time.Now().UnixNano()) //设置随机数种子
-	first := firstName[rand.Intn(len(firstName)-1)] + firstName[rand.Intn(len(firstName)-1)]
+	var first string
+	for i := 0; i <= rand.Intn(2); i++ {
+		first += firstName[rand.Intn(len(firstName)-1)]
+	}
 	//返回姓名
 	//time.Sleep(time.Second / 10)
 	return lastName[rand.Intn(len(lastName))-1] + first
