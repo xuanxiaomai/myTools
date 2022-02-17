@@ -10,6 +10,11 @@ import (
 
 type Tools struct{}
 
+//花里胡哨
+func Init() Tools {
+	return Tools{}
+}
+
 // 反转字符串
 func (t *Tools) Reverse(str string) string {
 	var result []byte
