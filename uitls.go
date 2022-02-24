@@ -54,7 +54,7 @@ func (t *Tools) Lcfirst(str string) string {
 }
 
 // 随机姓名
-func (t *Tools) RandomName() string {
+func (t *Tools) RandName() string {
 	var lastName = []string{
 		"赵", "钱", "孙", "李", "周", "吴", "郑", "王", "冯", "陈", "褚", "卫", "蒋",
 		"沈", "韩", "杨", "朱", "秦", "尤", "许", "何", "吕", "施", "张", "孔", "曹", "严", "华", "金", "魏",
@@ -82,9 +82,27 @@ func (t *Tools) RandomName() string {
 	rand.Seed(time.Now().UnixNano()) //设置随机数种子
 	var first string
 	for i := 0; i <= rand.Intn(2); i++ {
-		first += firstName[rand.Intn(len(firstName)-1)]
+		first += firstName[rand.Intn(len(firstName))]
 	}
 	//返回姓名
 	//time.Sleep(time.Second / 10)
-	return lastName[rand.Intn(len(lastName))-1] + first
+	return lastName[rand.Intn(len(lastName))] + first
+}
+
+//随机8到10位包含大小写密码
+func (t *Tools) RandPwd() string {
+	str := "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	bytes := []byte(str)
+	var result []byte
+	rand.Seed(time.Now().UnixNano())
+	for i := 0; i < RandInt(8, 11); i++ {
+		result = append(result, bytes[rand.Intn(len(bytes))])
+	}
+	return string(result)
+}
+
+// 指定范围随机 int
+func RandInt(min, max int) int {
+	rand.Seed(time.Now().UnixNano())
+	return min + rand.Intn(max-min)
 }
