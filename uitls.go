@@ -109,7 +109,7 @@ func RandInt(min, max int) int {
 }
 
 // 随机手机号
-func RandPhone() string {
+func (t *Tools) RandPhone() string {
 	two := []string{"3", "4", "5", "6", "7", "8", "9"}
 	var str string
 	for i := 0; i < 9; i++ {
