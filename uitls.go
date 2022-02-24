@@ -3,6 +3,7 @@ package myTools
 import (
 	"math/rand"
 	"os"
+	"strconv"
 	"time"
 	"unicode"
 )
@@ -105,4 +106,33 @@ func (t *Tools) RandPwd() string {
 func RandInt(min, max int) int {
 	rand.Seed(time.Now().UnixNano())
 	return min + rand.Intn(max-min)
+}
+
+// 随机手机号
+func RandPhone() string {
+	two := []string{"3", "4", "5", "6", "7", "8", "9"}
+	var str string
+	for i := 0; i < 9; i++ {
+		str += strconv.Itoa(RandInt(0, 10))
+	}
+	phone := "1" + two[RandInt(0, len(two))] + str
+	return phone
+}
+
+//随机6位小写字母加数字用户名
+func (t *Tools) Randuser() string {
+	str := "abcdefghijklmnopqrstuvwxyz"
+	ss := "0123456789"
+	bytes := []byte(str)
+	bytes2 := []byte(ss)
+	var result []byte
+	rand.Seed(time.Now().UnixNano())
+	num := RandInt(1, 5)
+	for i := 0; i < num; i++ {
+		result = append(result, bytes[rand.Intn(len(bytes))])
+	}
+	for i := 0; i < 6-num; i++ {
+		result = append(result, bytes2[rand.Intn(len(bytes2))])
+	}
+	return string(result)
 }
