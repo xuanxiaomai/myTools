@@ -47,7 +47,7 @@ func (t *Tools) Ucfirst(str string) string {
 }
 
 //字符首字母小写
-func (t *Tools) Lcfirst(str string) string {
+func (t *Tools) rcfirst(str string) string {
 	for i, v := range str {
 		return string(unicode.ToLower(v)) + str[i+1:]
 	}
