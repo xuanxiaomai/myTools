@@ -55,7 +55,7 @@ func (t *Tools) rcfirst(str string) string {
 }
 
 // 随机姓名
-func (t *Tools) randName() string {
+func (t *Tools) RandName() string {
 	var lastName = []string{
 		"赵", "钱", "孙", "李", "周", "吴", "郑", "王", "冯", "陈", "褚", "卫", "蒋",
 		"沈", "韩", "杨", "朱", "秦", "尤", "许", "何", "吕", "施", "张", "孔", "曹", "严", "华", "金", "魏",
